@@ -1,13 +1,13 @@
 let board = [];
-const BOARD_SIZE = 15;
-let currentPlayer = "X";
+const BOARD_SIZE = 19;
+let currentPlayer = "●";
 
 // 게임판 초기화
 function resetBoard() {
   board = Array(BOARD_SIZE)
     .fill()
     .map(() => Array(BOARD_SIZE).fill(""));
-  currentPlayer = "X";
+  currentPlayer = "●";
   drawBoard();
 }
 
@@ -27,7 +27,6 @@ function drawBoard() {
     boardElement.appendChild(rowElement);
   }
 }
-
 // 움직임 처리
 function makeMove(i, j) {
   if (board[i][j] !== "") return; // 이미 말이 놓인 칸에는 놓을 수 없음
@@ -37,7 +36,7 @@ function makeMove(i, j) {
     resetBoard();
     return;
   }
-  currentPlayer = currentPlayer === "X" ? "O" : "X"; // 플레이어 바꾸기
+  currentPlayer = currentPlayer === "●" ? "O" : "●"; // 플레이어 바꾸기
   drawBoard();
 }
 
